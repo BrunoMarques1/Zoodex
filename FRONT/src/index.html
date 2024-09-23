@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
+    <title>Camera Capture and Upload</title>
+</head>
+<body>
+    <h1>Capture and Analyze Image</h1>
+    <button id="startCamera">Start Camera</button>
+    <button id="capture" disabled>Capture Photo</button>
+    <button id="upload" disabled>Upload Photo</button>
+    <button id="clear" disabled>Clear</button>
+
+    <video id="camera" width="640" height="480" autoplay></video>
+    <canvas id="photo" width="640" height="480"></canvas>
+    <div id="result"></div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
