@@ -26,7 +26,10 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" | tr -d '\r' > ec2Key.pem
           chmod 400 ec2Key.pem
 
-
-      - name: Deploy to EC2
+      - name: Set Git Safe Directory on EC2 as root
         run: |
-          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && cp -rf FRONT/src /usr/share/nginx/html/'
+          ssh -i "ec2Key.pem" root@${{ secrets.EC2_HOST }} 'sudo git config --global --add safe.directory /home/ec2-user/Zoodex'
+
+      - name: Deploy to EC2 as root
+        run: |
+          ssh -i "ec2Key.pem" root@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && cp -rf FRONT/src /usr/share/nginx/html/'
