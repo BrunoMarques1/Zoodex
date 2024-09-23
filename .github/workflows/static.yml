@@ -28,4 +28,4 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && cp -rf FRONT/src /usr/share/nginx/html/'
+          ssh -i "ec2Key.pem" root@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && cp -rf FRONT/src /usr/share/nginx/html/'
