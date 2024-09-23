@@ -15,16 +15,8 @@ jobs:
 
       - name: Setup SSH key
         run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > ZoodexKeyPair.pem
-          chmod 400 ZoodexKeyPair.pem
+          echo "${{ secrets.EC2_SSH_KEY }}" > ec2Key.pem
+          chmod 400 ec2Key.pem
 
-      - name: SSH to EC2 and deploy
-        uses: appleboy/ssh-action@v0.1.0
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ZoodexKeyPair.pem
-          script: |
-            cd /home/ec2-user/Zoodex
-            git pull
-            cp -rf src /usr/share/nginx/html/
+      - name: Deploy to EC2
+        run: ssh -i "ec2Key.pem" root@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && cp -rf FRONT/src /usr/share/nginx/html/'
