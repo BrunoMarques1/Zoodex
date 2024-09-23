@@ -26,13 +26,6 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" | tr -d '\r' > ec2Key.pem
           chmod 400 ec2Key.pem
 
-      - name: Configure Git Safe Directory
-        run: |
-          git config --global --add safe.directory /home/ec2-user/Zoodex
-
       - name: Deploy to EC2 as root
         run: |
-          ssh -o StrictHostKeyChecking=no -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
-            cd /home/ec2-user/Zoodex &&
-            sudo git pull &&
-            sudo cp -rf /home/ec2-user/Zoodex/FRONT/src /usr/share/nginx/html/'
+          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && sudo cp -rf /home/ec2-user/Zoodex/FRONT/src /usr/share/nginx/html/'
