@@ -23,8 +23,9 @@ jobs:
 
       - name: Setup SSH key
         run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > ec2Key.pem
+          echo "${{ secrets.EC2_SSH_KEY }}" | tr -d '\r' > ec2Key.pem
           chmod 400 ec2Key.pem
+
 
       - name: Deploy to EC2
         run: |
