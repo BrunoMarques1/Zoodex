@@ -13,6 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Add SSH key to known_hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+
       - name: Setup SSH key
         run: |
           echo "${{ secrets.EC2_SSH_KEY }}" > ec2Key.pem
