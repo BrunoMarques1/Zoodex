@@ -28,4 +28,9 @@ jobs:
 
       - name: Deploy to EC2 as root
         run: |
-          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} 'cd /home/ec2-user/Zoodex && git pull && sudo cp -rf /home/ec2-user/Zoodex/FRONT/src /usr/share/nginx/html/'
+          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
+            cd /home/ec2-user/Zoodex &&
+            git pull &&
+            sudo rm -rf /usr/share/nginx/html/src &&
+            sudo cp -rf /home/ec2-user/Zoodex/FRONT/src /usr/share/nginx/html/'
+
