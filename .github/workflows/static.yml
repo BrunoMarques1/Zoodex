@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     paths:
-      - 'FRONT/src/**'
+      - 'FRONT/**'
 
 jobs:
   deploy:
@@ -31,6 +31,6 @@ jobs:
           ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
             cd /home/ec2-user/Zoodex &&
             git pull &&
-            sudo rm -rf /usr/share/nginx/html/src &&
-            sudo cp -rf /home/ec2-user/Zoodex/FRONT/src /usr/share/nginx/html/'
+            sudo rm -rf /usr/share/nginx/html/src /usr/share/nginx/html/teste &&
+            sudo cp -rf /home/ec2-user/Zoodex/FRONT/* /usr/share/nginx/html/'
 

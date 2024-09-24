@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="startCamera" onclick="startCamera()">LIGAR CÂMERA</button>
+    <button id="startCamera" onclick="startCamera('user')">LIGAR CÂMERA FRONTAL</button>
+    <button id="startCamera" onclick="startCamera('environment')">LIGAR CÂMERA TRASEIRA</button>
     <button id="captureFoto" onclick="captureFoto()">TIRAR FOTO</button>
     <br>
     <video id="camera" width="640" height="480" autoplay></video>
