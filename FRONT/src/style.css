@@ -1,0 +1,131 @@
+/* Reseta alguns estilos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: #f0f5f1;
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png'); /* Textura sutil */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Cabeçalho */
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #4a7c59;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Estilo dos botões */
+button {
+    width: 85%;
+    max-width: 350px;
+    margin: 10px;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:disabled {
+    background-color: #c1c1c1;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+    background-color: #6b8e23;
+    transform: translateY(-2px);
+}
+
+/* Video ao vivo */
+video {
+    display: none;
+    width: 85%;
+    max-width: 400px;
+    margin: 20px 0;
+    border: 3px solid #cddc39;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Foto capturada */
+canvas {
+    display: none;
+    width: 85%;
+    max-width: 400px;
+    margin: 20px 0;
+    border: 3px solid #cddc39;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Caixa de resultado */
+#result {
+    width: 85%;
+    max-width: 400px;
+    background-color: #fff;
+    border: 3px solid #4a7c59;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilo dos textos dentro da caixa de resultado */
+#result h2 {
+    font-size: 1.5rem;
+    color: #4a7c59;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+#result p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Efeito de transição suave para a caixa de resultado */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para telas menores */
+@media (max-width: 768px) {
+    button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #result h2 {
+        font-size: 1.3rem;
+    }
+
+    #result p {
+        font-size: 1rem;
+    }
+}
