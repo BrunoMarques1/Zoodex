@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     paths:
-      - 'FRONT/**'  # Monitora alterações na pasta FRONT
+      - 'FRONT/src/**'
 
 jobs:
   deploy:
