@@ -42,5 +42,6 @@ async def detect_image_labels(file: UploadFile):
                     "confidence": i['Confidence']
                 }
 #teste
+#teste
 
 
