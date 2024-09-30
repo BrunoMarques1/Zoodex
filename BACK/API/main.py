@@ -19,7 +19,7 @@ lista = ["Lion"]
 
 @app.get("/")
 async def root():
-    return {"msg":"testegithubactions123"}
+    return {"msg":"testegithubactions123123"}
 
 @app.get("/animais")
 async def root():
