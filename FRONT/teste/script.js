@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const camera = document.getElementById("camera")
     const photo = document.getElementById("photo")
     const context = photo.getContext('2d')
-    const resultDiv = document.getElementById("devices")
+    const resultDiv = document.getElementById("result")
     let stream
     
     
@@ -56,8 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 //        resultDiv.innerHTML += `<p>- ${label.name}: ${label.confidence}%</p>`;
                 //    });
 
-
-                
                 resultDiv.innerHTML += `<p> Nome: ${data.nome}</p>`;
                 resultDiv.innerHTML += `<p> Descrição: ${data.descricao}</p>`;
                 console.log(data)
