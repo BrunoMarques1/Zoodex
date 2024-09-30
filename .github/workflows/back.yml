@@ -1,0 +1,40 @@
+name: Deploy to EC2
+
+on:
+  push:
+    paths:
+      - "BACK/**"
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create SSH directory
+        run: |
+          mkdir -p ~/.ssh
+
+      - name: Add SSH key to known_hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Setup SSH key
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" | tr -d '\r' > ec2Key.pem
+          chmod 400 ec2Key.pem
+
+      - name: Deploy to EC2 as root
+        run: |
+          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
+            cd /home/ec2-user/Zoodex &&
+            git pull &&
+            kill $(pgrep -f fastapi) &&
+            tmux attach-session -t api &&
+            ls &&
+            cd /home/ec2-user/Zoodex/BACK/API/ &&
+            fastapi run main.py'
+
