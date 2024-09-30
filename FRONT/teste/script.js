@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('file', blob, 'photo.jpg');
 
 //            fetch('https://zoodex.site/detect/', {
-            fetch('http://127.0.0.1:8000/detect/', {
+            fetch('https://zoodex.site/detect/', {
                 method: 'POST',
                 body: formData
             })
