@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 //        resultDiv.innerHTML += `<p>- ${label.name}: ${label.confidence}%</p>`;
                 //    });
 
+
                 
                 resultDiv.innerHTML += `<p> Nome: ${data.nome}</p>`;
                 resultDiv.innerHTML += `<p> Descrição: ${data.descricao}</p>`;
