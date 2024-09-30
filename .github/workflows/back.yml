@@ -32,9 +32,12 @@ jobs:
           ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
             cd /home/ec2-user/Zoodex &&
             git pull &&
-            kill $(pgrep -f fastapi) &&
-            tmux attach-session -t api &&
-            ls &&
-            cd /home/ec2-user/Zoodex/BACK/API/ &&
-            fastapi run main.py'
+            kill $(pgrep -f "fastapi") || true &&  # Matar o processo FastAPI
+            # Verifica se a sessão tmux existe e cria se não existir
+            if ! tmux has-session -t api; then
+              tmux new-session -d -s api  # Cria uma nova sessão se não existir
+            fi &&
+            # Inicia a aplicação FastAPI dentro da sessão tmux
+            tmux send-keys -t api "cd /home/ec2-user/Zoodex/BACK/API/ && fastapi run main.py" C-m
+          '
 
