@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 //        resultDiv.innerHTML += `<p>- ${label.name}: ${label.confidence}%</p>`;
                 //    });
 
-                resultDiv.innerHTML += `<p>- ${data.nome} | ${data.confidence}</p>`;
+                resultDiv.innerHTML += `<p> Nome: ${data.nome}</p>`;
+                resultDiv.innerHTML += `<p> Descrição: ${data.descricao}</p>`;
                 console.log(data)
 //                    } else {
 //                        resultDiv.innerHTML += '<p>No elements detected in the image.</p>';

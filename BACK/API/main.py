@@ -3,6 +3,8 @@ from starlette.middleware.cors import CORSMiddleware
 from rekognition import detect_labels
 from models import Body, Animais
 from database import session
+from sqlalchemy import select
+
 
 app = FastAPI()
 app.add_middleware(
@@ -13,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"], 
 )
 
-animais = ["Tiger"]
+lista = ["Lion"]
 
 @app.get("/")
 async def root():
@@ -30,14 +32,14 @@ async def detect_image_labels(file: UploadFile):
     labels = detect_labels(image_bytes)
 
     for i in labels:
-        print(i["Name"], " - ", i["Confidence"])
-    for i in labels:
-        if (i['Name'] in animais and i['Confidence'] > 89):
-        #if True:
-        #    print( {"nome": i["Name"], "confidence":i['Confidence']})
-            return {"nome": i["Name"], "confidence":i['Confidence']}
+        if (i['Name'] in lista and i['Confidence'] > 89):
+            result = session.query(Animais).filter(Animais.nome_eng == i['Name']).first()
+            print(result)
+            if result:
+                return {
+                    "nome": result.nome,
+                    "descricao": result.descricao,
+                    "confidence": i['Confidence']
+                }
 
-#    if labels:
-#        print ({"labels": [{"name": label['Name'], "confidence": round(label['Confidence'], 2)} for label in labels]})
-#    else:
-#        return {"message": "No elements detected in the image."}
+
