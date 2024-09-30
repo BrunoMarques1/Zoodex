@@ -3,3 +3,4 @@
 BACK/terraform/.terraform.lock.hcl
 BACK/terraform/terraform.tfstate
 BACK/terraform/terraform.tfstate.backup
+BACK/API/.env

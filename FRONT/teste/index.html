@@ -6,14 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="startCamera" onclick="startCamera()">LIGAR CÂMERA FRONTAL</button>
-    <button id="startCamera" onclick="startCamera()">LIGAR CÂMERA TRASEIRA</button>
+    <button id="startFrontCamera" onclick="startCamera('user')">LIGAR CÂMERA FRONTAL</button>
+    <button id="startBackCamera" onclick="startCamera('environment')">LIGAR CÂMERA TRASEIRA</button>
     <button id="captureFoto" onclick="captureFoto()">TIRAR FOTO</button>
+    <button id="result" onclick="uploadPhoto()">ENVIAR FOTO</button>
+<!--
+    <button id="getDevices" onclick="getDevices()">Câmeras</button>
+-->
     <br>
+    <div id="devices"> </div>
     <video id="camera" width="640" height="480" autoplay></video>
     <canvas id="photo" width="640" height="480"></canvas>
 
-
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </body>
 </html>
