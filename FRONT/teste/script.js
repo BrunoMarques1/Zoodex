@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const camera = document.getElementById("camera")
     const photo = document.getElementById("photo")
     const context = photo.getContext('2d')
-    const resultDiv = document.getElementById("result")
+    const resultDiv = document.getElementById("resultado")
     let stream
     
     
