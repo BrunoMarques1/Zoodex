@@ -15,11 +15,11 @@ app.add_middleware(
     allow_headers=["*"], 
 )
 
-lista = ["Lion"]
+lista = ["Lion","Giraffe","Elephant","Rhino","Hippo","Tiger"]
 
 @app.get("/")
 async def root():
-    return {"msg":"teste"}
+    return {"msg":"teste++"}
 
 @app.get("/animais")
 async def root():
