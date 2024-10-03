@@ -2,8 +2,9 @@ from fastapi import FastAPI, UploadFile
 from starlette.middleware.cors import CORSMiddleware
 from rekognition import detect_labels
 from models import Body, Animais
-from database import db
+from database import session
 from sqlalchemy import select
+
 
 app = FastAPI()
 app.add_middleware(
@@ -22,9 +23,8 @@ async def root():
 
 @app.get("/animais")
 async def root():
-    data = db.query(Animais).all()
+    data = session.query(Animais).all()
     return data
-
 
 @app.post("/detect/")
 async def detect_image_labels(file: UploadFile):
@@ -33,7 +33,7 @@ async def detect_image_labels(file: UploadFile):
 
     for i in labels:
         if (i['Name'] in lista and i['Confidence'] > 89):
-            result = db.query(Animais).filter(Animais.nome_eng == i['Name']).first()
+            result = session.query(Animais).filter(Animais.nome_eng == i['Name']).first()
             print(result)
             if result:
                 return {

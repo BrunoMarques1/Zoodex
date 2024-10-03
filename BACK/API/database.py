@@ -16,11 +16,5 @@ engine = create_engine(db_url)
 mapper_registry = registry()
 Base = mapper_registry.generate_base()
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+Session = sessionmaker(bind=engine)
+session = Session()
