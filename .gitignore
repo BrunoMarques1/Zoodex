@@ -5,3 +5,4 @@ BACK/terraform/terraform.tfstate
 BACK/terraform/terraform.tfstate.backup
 BACK/API/.env
 FRONT/teste/.env
+BACK/__pycache__
