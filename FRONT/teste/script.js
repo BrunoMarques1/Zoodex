@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //    }
 
     function teste(){
-        console.log("TESTE123123")
+        console.log("TESTE213")
         document.getElementById("teste").innerHTML += '<h2>TESTE</h2>'
     }
 
@@ -97,4 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
     window.uploadPhoto = uploadPhoto
 })
 
+function teste(){
+    console.log("TESTE213")
+    document.getElementById("teste").innerHTML += '<h2>TESTE</h2>'
+}
 
