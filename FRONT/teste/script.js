@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //    }
 
     function teste(){
-        console.log("TESTE")
+        console.log("TESTE123123")
         document.getElementById("teste").innerHTML += '<h2>TESTE</h2>'
     }
 
