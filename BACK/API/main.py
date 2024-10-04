@@ -1,9 +1,10 @@
-from fastapi import FastAPI, UploadFile
+from fastapi import FastAPI, UploadFile, Depends
 from starlette.middleware.cors import CORSMiddleware
 from rekognition import detect_labels
 from models import Body, Animais
-from database import session
+from database import get_db
 from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 
 app = FastAPI()
@@ -22,18 +23,18 @@ async def root():
     return {"msg":"teste++"}
 
 @app.get("/animais")
-async def root():
-    data = session.query(Animais).all()
+async def root(db: Session = Depends(get_db)):
+    data = db.query(Animais).all()
     return data
 
 @app.post("/detect/")
-async def detect_image_labels(file: UploadFile):
+async def detect_image_labels(file: UploadFile, db: Session = Depends(get_db)):
     image_bytes = await file.read()
     labels = detect_labels(image_bytes)
 
     for i in labels:
         if (i['Name'] in lista and i['Confidence'] > 89):
-            result = session.query(Animais).filter(Animais.nome_eng == i['Name']).first()
+            result = db.query(Animais).filter(Animais.nome_eng == i['Name']).first()
             print(result)
             if result:
                 return {

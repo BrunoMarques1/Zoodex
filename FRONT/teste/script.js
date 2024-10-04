@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 document.addEventListener('DOMContentLoaded', function () {
     const camera = document.getElementById("camera")
     const photo = document.getElementById("photo")
@@ -43,8 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         photo.toBlob(blob => {
             formData.append('file', blob, 'photo.jpg');
 
-//            fetch('https://zoodex.site/detect/', {
-            fetch('https://zoodex.site/detect/', {
+            fetch(process.env.urlAPI, {
                 method: 'POST',
                 body: formData
             })

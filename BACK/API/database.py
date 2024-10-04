@@ -17,4 +17,10 @@ mapper_registry = registry()
 Base = mapper_registry.generate_base()
 
 Session = sessionmaker(bind=engine)
-session = Session()
+
+def get_db():
+    db = Session()
+    try:
+        yield db
+    finally:
+        db.close()
