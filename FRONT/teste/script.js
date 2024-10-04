@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 document.addEventListener('DOMContentLoaded', function () {
     const camera = document.getElementById("camera")
     const photo = document.getElementById("photo")
@@ -85,20 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
 //    console.log(devices);
 //    }
 
-    function teste(){
-        console.log("TESTE213")
-        document.getElementById("teste").innerHTML += '<h2>TESTE</h2>'
-    }
-
     window.teste = teste
     window.startCamera = startCamera
     window.captureFoto = captureFoto
 //  window.getDevices = getDevices
     window.uploadPhoto = uploadPhoto
 })
-
-function teste(){
-    console.log("TESTE213")
-    document.getElementById("teste").innerHTML += '<h2>TESTE</h2>'
-}
-
