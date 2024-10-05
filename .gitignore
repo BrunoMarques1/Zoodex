@@ -6,3 +6,4 @@ BACK/terraform/terraform.tfstate.backup
 BACK/API/.env
 FRONT/teste/.env
 BACK/__pycache__
+FRONT/teste/config.js

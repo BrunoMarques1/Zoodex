@@ -10,16 +10,25 @@
     <button id="startBackCamera" onclick="startCamera('environment')">LIGAR CÂMERA TRASEIRA</button>
     <button id="captureFoto" onclick="captureFoto()">TIRAR FOTO</button>
     <button id="result" onclick="uploadPhoto()">ENVIAR FOTO</button>
+    <button id="getDevices" onclick="getDevices()">devices</button>
+    <br><br>
+    <button id="captureFoto" onclick="captureTeste('./imgs/leao.jpg')">Leão</button>
+    <button id="captureFoto" onclick="captureTeste('./imgs/girafa.jpg')">Girafa</button>
+    <button id="captureFoto" onclick="captureTeste('./imgs/elefante.jpg')">Elefante</button>
+    <button id="captureFoto" onclick="captureTeste('./imgs/rinoceronte.jpg')">Rinoceronte</button>
+    <button id="captureFoto" onclick="captureTeste('./imgs/hipopotamo.jpg')">Hipopótamo</button>
+    <button id="captureFoto" onclick="captureTeste('./imgs/tigre.jpg')">Tigre</button>
 
-    <button onclick="teste()">teste</button>
 
-    <div id="teste" ></div>
 
-    <br>
+    <div id="devices" ></div>
     <div id="resultado"> </div>
-    <video id="camera" width="640" height="480" autoplay></video>
-    <canvas id="photo" width="640" height="480"></canvas>
 
-    <script src="script.js" defer></script>
+    
+    <canvas id="photo" width="640" height="480"></canvas>
+    <video id="camera" width="640" height="480" autoplay></video>
+
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
