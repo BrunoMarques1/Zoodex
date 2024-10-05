@@ -20,7 +20,7 @@ lista = ["Lion","Giraffe","Elephant","Rhino","Hippo","Tiger"]
 
 @app.get("/")
 async def root():
-    return {"msg":"teste++"}
+    return {"msg":"teste+"}
 
 @app.get("/animais")
 async def root(db: Session = Depends(get_db)):
