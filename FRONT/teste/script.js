@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
-                resultDiv.innerHTML = '<h2>Detected Elemaents:</h2>'
+                resultDiv.innerHTML = '<h2>Animal detectado:</h2>'
                 //if (data.labels && data.labels.length > 0) {
                 //    data.labels.forEach(label => {
                 //        resultDiv.innerHTML += `<p>- ${label.name}: ${label.confidence}%</p>`
