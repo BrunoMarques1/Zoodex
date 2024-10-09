@@ -3,6 +3,7 @@ function logar(){
     const senha = document.getElementById('senha').value
     const resultado = document.getElementById('resultado')
 
+
     
     fetch('http://localhost:3030/login', {
         method: 'POST',
@@ -16,7 +17,7 @@ function logar(){
     })
     .then(response => response.json())
     .then(data =>{
-        resultado.innerHTML = `<p>${data.informacoes}</p>` 
+        console.log(data)
     })
 }
 
