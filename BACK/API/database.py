@@ -12,7 +12,7 @@ db_name = os.getenv("DB_NAME")
 
 db_url = f"mysql+pymysql://{db_user}:{db_password}@{db_host}:3306/{db_name}"
 
-engine = create_engine(db_url)
+engine = create_engine(db_url, pool_pre_ping=True)
 mapper_registry = registry()
 Base = mapper_registry.generate_base()
 
