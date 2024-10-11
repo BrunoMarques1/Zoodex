@@ -2,6 +2,7 @@ const express = require('express')
 const knex = require('knex')
 const router = express.Router()
 const path = require('path')
+const jwt = require('jsonwebtoken')
 
 
 
@@ -15,10 +16,10 @@ router.get('/testeLogin', async (req, res) => {
 
 
 router.get('/testeLogado', async (req, res) => {
-    const cookie = req.cookies.Email
+    const cookie = req.cookies.TokenAuth
     if (cookie) {
         console.log(cookie)
-        res.send('Cookie encontrado: ' + cookie)
+        res.send(jwt.verify(cookie,'senha'))
     } else {
         console.log('Nenhum cookie encontrado')
         res.send('Nenhum cookie encontrado')
