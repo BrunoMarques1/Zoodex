@@ -1,5 +1,4 @@
-
-/BACK/terraform/.terraform
+BACK/terraform/.terraform
 BACK/terraform/.terraform.lock.hcl
 BACK/terraform/terraform.tfstate
 BACK/terraform/terraform.tfstate.backup
@@ -8,4 +7,4 @@ FRONT/teste/.env
 BACK/__pycache__
 FRONT/teste/config.js
 BACK/API/__pycache__
-BACK/auth/server/database.js
+BACK/auth/server/db.js
