@@ -8,4 +8,4 @@ FRONT/teste/.env
 BACK/__pycache__
 FRONT/teste/config.js
 BACK/API/__pycache__
-BACK/auth/database,js
+BACK/auth/server/database.js
