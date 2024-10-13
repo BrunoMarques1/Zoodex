@@ -1,5 +1,5 @@
 function login() {
-    fetch('http://localhost:3030/testeLogin', {
+    fetch('http://localhost:3030/testeCriarCookie', {
         method: 'GET',
         credentials: 'include'
     })
@@ -8,7 +8,7 @@ function login() {
 }
 
 function logado() {
-    fetch('http://localhost:3030/testeLogado', {
+    fetch('http://localhost:3030/testeVerCookie', {
         method: 'GET',
         credentials: 'include'
     })

@@ -11,29 +11,18 @@ function logar(){
             'email': email,
             'senha': senha,
         }),
-        credentials: 'include' // para garantir que os cookies sejam enviados
+        credentials: 'include'
     })
     .then(response => {
         if (response.redirected) {
-            window.location.href = response.url; // Redireciona para a URL do servidor
+            window.location.href = response.url
         } else {
-            return response.json();
+            return response.json()
         }
     })
     .then(data => {
         if (data && data.msg) {
-            document.getElementById('resultado').innerText = data.msg;
+            document.getElementById('resultado').innerText = data.msg
         }
     })
-}
-
-
-function logado() {
-    fetch('http://localhost:3030/testeLogado', {
-        method: 'GET',
-        credentials: 'include'
-    })
-    .then(response => response.text())
-    .then(data => console.log('Resposta:', data))
-    .catch(error => console.error('Erro:', error));
 }
