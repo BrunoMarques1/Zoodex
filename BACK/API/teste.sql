@@ -19,7 +19,7 @@ DROP TABLE usuarios;
 
 SELECT * FROM animais;
 SELECT * FROM usuarios;
-DELETE FROM usuarios WHERE id > 5;
+DELETE FROM usuarios WHERE id > 10;
 
 
 
