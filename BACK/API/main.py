@@ -18,11 +18,11 @@ app.add_middleware(
 
 lista = ["Lion","Giraffe","Elephant","Rhino","Hippo","Tiger"]
 
-@app.get("/")
+@app.get("/api/teste/")
 async def root():
     return {"msg":"testando"}
 
-@app.get("/animais")
+@app.get("/api/animais/")
 async def root(db: Session = Depends(get_db)):
     data = db.query(Animais).all()
     return data
