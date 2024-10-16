@@ -1,5 +1,5 @@
 function login() {
-    fetch('http://localhost:3030/testeCriarCookie', {
+    fetch('https://zoodex.site/node_api/testeCriarCookie', {
         method: 'GET',
         credentials: 'include'
     })
@@ -8,7 +8,7 @@ function login() {
 }
 
 function logado() {
-    fetch('http://localhost:3030/testeVerCookie', {
+    fetch('https://zoodex.site/node_api/testeVerCookie', {
         method: 'GET',
         credentials: 'include'
     })

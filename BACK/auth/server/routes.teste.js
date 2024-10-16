@@ -5,16 +5,16 @@ const jwt = require('jsonwebtoken')
 
 
 
-router.get('/teste', (req, res) => res.sendFile(path.join(__dirname, '../src/verCookie.html')))
+router.get('/node_api/teste', (req, res) => res.sendFile(path.join(__dirname, '../src/verCookie.html')))
 
 
-router.get('/testeCriarCookie', async (req, res) => {
+router.get('/node_api/testeCriarCookie', async (req, res) => {
     res.cookie('Teste', 'teste123', { httpOnly: true, secure: false }) 
     res.send('Cookie definido.')
 })
 
 
-router.get('/testeVerCookie', async (req, res) => {
+router.get('/node_api/testeVerCookie', async (req, res) => {
     const cookie = req.cookies.TokenAuth
     if (cookie) {
         console.log(cookie)
