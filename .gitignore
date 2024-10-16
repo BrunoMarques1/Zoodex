@@ -3,11 +3,10 @@ BACK/terraform/.terraform.lock.hcl
 BACK/terraform/terraform.tfstate
 BACK/terraform/terraform.tfstate.backup
 BACK/API/.env
-FRONT/teste/.env
 BACK/__pycache__
-FRONT/teste/config.js
 BACK/API/__pycache__
 BACK/auth/server/database.js
 BACK/auth/node_modules
 BACK/auth/package-lock.json
 BACK/auth/package-lock.json
+FRONT/teste/config.js
