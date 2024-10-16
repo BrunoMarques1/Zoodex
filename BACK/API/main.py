@@ -18,16 +18,16 @@ app.add_middleware(
 
 lista = ["Lion","Giraffe","Elephant","Rhino","Hippo","Tiger"]
 
-@app.get("/api/teste/")
+@app.get("/py_api/teste/")
 async def root():
     return {"msg":"teste++"}
 
-@app.get("/api/animais/")
+@app.get("/py_api/animais/")
 async def root(db: Session = Depends(get_db)):
     data = db.query(Animais).all()
     return data
 
-@app.post("/detect/")
+@app.post("/py_api/detect/")
 async def detect_image_labels(file: UploadFile, db: Session = Depends(get_db)):
     image_bytes = await file.read()
     labels = detect_labels(image_bytes)

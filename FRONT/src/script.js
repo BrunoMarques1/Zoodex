@@ -35,7 +35,7 @@
             photo.toBlob(blob => {
                 formData.append('file', blob, 'photo.jpg');
 
-                fetch('https://zoodex.site/detect/', {
+                fetch('https://zoodex.site/py_api/detect/', {
                     method: 'POST',
                     body: formData
                 })
