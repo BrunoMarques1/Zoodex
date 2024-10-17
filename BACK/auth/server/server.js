@@ -8,7 +8,7 @@ const rotasTeste = require('./routes.teste.js')
 
 
 app.use(cors({
-    origin: 'http://localhost:3030/',
+    origin: 'http://localhost',
     credentials: true
 }))
 
