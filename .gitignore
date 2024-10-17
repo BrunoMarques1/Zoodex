@@ -10,3 +10,4 @@ BACK/auth/node_modules
 BACK/auth/package-lock.json
 BACK/auth/package-lock.json
 FRONT/teste/config.js
+BACK/API/__pycache__/
