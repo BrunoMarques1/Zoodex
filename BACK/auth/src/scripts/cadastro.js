@@ -4,7 +4,7 @@ function cadastrar(){
     const informacoes = document.getElementById('informacoes').value
 
     
-    fetch('http://localhost:3030/cadastrar', {
+    fetch('http://localhost:3030/node_api/cadastrar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

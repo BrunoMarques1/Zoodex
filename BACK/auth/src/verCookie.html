@@ -8,28 +8,9 @@
 <body>
     
     <h1>TESTE</h1>
-    <button onclick="login()">Login</button>
-    <button onclick="logado()">Logado</button>
+    <button id="loginButton">Login</button>
+    <button id="logadoButton">Logado</button>
 
-    <script>
-    function login() {
-        fetch('https://44.206.218.5/node_api/testeCriarCookie', {
-            method: 'GET',
-            credentials: 'include'
-        })
-        .then(response => console.log('Login realizado'))
-        .catch(error => console.error('Erro no login:', error));
-    }
-    
-    function logado() {
-        fetch('http://44.206.218.5/node_api/testeVerCookie', {
-            method: 'GET',
-            credentials: 'include'
-        })
-        .then(response => response.text())
-        .then(data => console.log('Resposta:', data))
-        .catch(error => console.error('Erro:', error));
-    }
-    </script>
+    <script type="module" src="./scripts/verCookie.js"></script>
 </body>
 </html>

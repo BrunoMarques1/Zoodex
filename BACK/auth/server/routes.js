@@ -8,14 +8,15 @@ const jwt = require('jsonwebtoken')
 const secretKey = 'senha'
 const authMiddleware = require('./authMiddleware.js')
 
-router.get('/cadastro', (req, res) => res.sendFile(path.join(__dirname, '../src/cadastro.html')))
-router.get('/login', (req, res) => res.sendFile(path.join(__dirname, '../src/login.html')))
-router.get('/index', authMiddleware, (req, res) => {
+
+router.get('/node_api/cadastro', (req, res) => res.sendFile(path.join(__dirname, '../src/cadastro.html')))
+router.get('/node_api/login', (req, res) => res.sendFile(path.join(__dirname, '../src/login.html')))
+router.get('/node_api/index', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, '../src/principal.html'));
 })
 
 
-router.post('/cadastrar', async (req,res) =>{
+router.post('/node_api/cadastrar', async (req,res) =>{
     const {email,senha,informacoes} = req.body
     const hashSenha = await bcrypt.hash(senha,saltRounds)
     knex('usuarios').insert({
@@ -28,7 +29,7 @@ router.post('/cadastrar', async (req,res) =>{
 })
 
 
-router.post('/login', async (req, res) => {
+router.post('/node_api/login', async (req, res) => {
     const { email, senha } = req.body
 
     try{

@@ -2,7 +2,7 @@ function logar(){
     const email = document.getElementById('email').value
     const senha = document.getElementById('senha').value
 
-    fetch('http://localhost:3030/login', {
+    fetch('http://localhost:3030/node_api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
