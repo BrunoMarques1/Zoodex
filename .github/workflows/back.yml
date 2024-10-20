@@ -5,7 +5,6 @@ on:
     paths:
       - "BACK/**"
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -32,6 +31,9 @@ jobs:
           ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
             cd /home/ec2-user/Zoodex &&
             git pull &&
-            tmux send-keys -t api C-c " cd /home/ec2-user/Zoodex/BACK/API/ && fastapi run main.py" C-m
+            if tmux has-session -t api; then
+              tmux send-keys -t api C-c "cd /home/ec2-user/Zoodex/BACK/API/ && fastapi run main.py" C-m
+            else
+              tmux new-session -d -s api "cd /home/ec2-user/Zoodex/BACK/API/ && fastapi run main.py"
+            fi
           '
-
