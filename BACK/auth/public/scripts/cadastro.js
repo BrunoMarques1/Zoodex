@@ -1,4 +1,4 @@
-import { URL } from '../../src/scripts/url.js'
+import { URL } from './url.js'
 
 
 function cadastrar(){
