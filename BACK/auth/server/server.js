@@ -4,8 +4,8 @@ const cookieParser = require('cookie-parser')
 const path = require('path')
 const app = express()
 const rotas = require('./routes.js')
-const rotasTeste = require('./routes.teste.js')
 const URL = require('./url.js')
+const authMiddleware = require('./authMiddleware.js')
 
 
 app.use(cors({
@@ -15,14 +15,18 @@ app.use(cors({
 
 app.use(express.json())
 app.use(cookieParser())
-app.use('/node_api/',express.static(path.join(__dirname, '../src')))
+
+
+app.use('/node_api/public',express.static(path.join(__dirname, '../public')))
+app.use('/node_api/private',authMiddleware,express.static(path.join(__dirname, '../private')))
+
+
 
 app.use('/', rotas)
-app.use('/', rotasTeste)
 
 
 
 
-app.listen(3030, () => {
+app.listen(3030,'0.0.0.0', () => {
     console.log('Servidor online.')
-})
+});

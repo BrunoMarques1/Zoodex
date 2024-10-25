@@ -1,18 +1,21 @@
+import { URL } from '../../src/scripts/url.js'
+
+
 function cadastrar(){
+    const nome = document.getElementById('nome').value
     const email = document.getElementById('email').value
     const senha = document.getElementById('senha').value
-    const informacoes = document.getElementById('informacoes').value
 
     
-    fetch('http://localhost:3030/node_api/cadastrar', {
+    fetch(`${URL}/node_api/cadastrar`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            'nome': nome,
             'email': email,
-            'senha': senha,
-            'informacoes': informacoes
+            'senha': senha
         })
     })
     .then(response => response.text())
@@ -20,3 +23,5 @@ function cadastrar(){
         console.log(data)
     })
 }
+
+document.getElementById('cadastrar').addEventListener('click', cadastrar)

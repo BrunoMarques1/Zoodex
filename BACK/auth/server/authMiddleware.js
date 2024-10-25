@@ -6,14 +6,14 @@ function authMiddleware(req, res, next) {
 
     if (!token) {
         console.log('Token ausente.');
-        return res.redirect('/login');
+        return res.redirect('/node_api/login');
     }
 
     jwt.verify(token, secretKey, (err, decoded) => {
         if (err) {
             console.log('Token inválido ou expirado.');
             res.clearCookie('TokenAuth');
-            return res.redirect('/login');
+            return res.redirect('/node_api/login');
         }
 
         console.log('Token válido.');

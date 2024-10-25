@@ -2,11 +2,12 @@ CREATE DATABASE zoodex;
 DROP DATABASE zoodex;
 USE zoodex;
 
-CREATE TABLE animais (
+CREATE TABLE usuarios (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  nome_eng VARCHAR(30) NOT NULL,
-  nome VARCHAR(30) NOT NULL,
-  descricao VARCHAR(2000) NOT NULL
+  nome VARCHAR(100) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  foto_perfil VARCHAR(255)
 );
 
 CREATE TABLE usuarios (

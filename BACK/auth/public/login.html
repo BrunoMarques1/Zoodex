@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoodex - Login</title>
+    <link rel="stylesheet" href="./public/style/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1 class="title">Zoodex</h1>
+            <p class="subtitle">Login</p>
+            <!-- Removi o <form> -->
+            <div class="input-box">
+                <label for="email">Conta:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Senha:</label>
+                <input type="password" id="senha" name="password" required>
+            </div>
+            <div id="buttons" class="buttons">
+                <!-- Mudei para botão tipo button para não enviar o form -->
+                <button type="button" class="login-btn" id="entrar">Entrar</button>
+                <button type="button" class="register-btn">Cadastrar</button>
+            </div>
+            <p id="resultado"></p>
+        </div>
+    </div>
+
+    <script type="module" src="./public/scripts/login.js"></script>
+</body>
+</html>
