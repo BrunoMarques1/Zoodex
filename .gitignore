@@ -14,3 +14,4 @@ BACK/API/__pycache__/
 BACK/auth/src/scripts/url.js
 BACK/auth/server/url.js
 BACK/auth/private/scripts/url.js
+BACK/auth/public/scripts/url.js
