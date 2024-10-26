@@ -25,13 +25,13 @@ function entrar() {
     .then(data => {
         if (data && data.msg) {
             alert('Erro ao tentar fazer login.')
-            //document.getElementById('resultado').innerText = data.msg // Mostra mensagem de erro ou sucesso
+            //document.getElementById('resultado').innerText = data.msg 
         }
     })
     .catch(data => {
         if (data && data.msg) {
             alert('Erro ao tentar fazer login.')
-            //document.getElementById('resultado').innerText = data.msg // Mostra mensagem de erro ou sucesso
+            //document.getElementById('resultado').innerText = data.msg 
         }
     })
 }
