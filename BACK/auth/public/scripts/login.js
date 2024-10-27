@@ -1,6 +1,6 @@
 import { URL } from './url.js'
 
-function entrar() {
+function login() {
     const email = document.getElementById('email').value
     const senha = document.getElementById('senha').value
 
@@ -24,16 +24,15 @@ function entrar() {
     })
     .then(data => {
         if (data && data.msg) {
-            alert('Erro ao tentar fazer login.')
-            //document.getElementById('resultado').innerText = data.msg 
-        }
-    })
-    .catch(data => {
-        if (data && data.msg) {
-            alert('Erro ao tentar fazer login.')
+            alert(data.msg)
             //document.getElementById('resultado').innerText = data.msg 
         }
     })
 }
 
-document.getElementById('entrar').addEventListener('click', entrar)
+function signin(){
+    window.location.href = ('./cadastro')
+}
+
+document.getElementById('login').addEventListener('click', login)
+document.getElementById('signin').addEventListener('click', signin)

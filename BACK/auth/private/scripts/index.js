@@ -1,4 +1,7 @@
 import { URL } from './url.js'
+const cam = document.getElementById('cam');
+
+
 
 function getToken() {
     fetch(`${URL}/node_api/getToken`, {
@@ -9,8 +12,23 @@ function getToken() {
     .then(data => {
         console.log(data)
         document.getElementById('username').innerHTML = data.nome
+        document.getElementById('profile-pic').style = `background-image: url(${data.foto_perfil});`
     })
     .catch(error => console.error('Erro:', error))
 }
 
+async function analise(){
+    cam.innerHTML += `<video id="camera" width="640" height="480" autoplay></video>`
+    try {
+        const constraints = {
+            video: { facingMode: 'user' } 
+        };
+        const stream = await navigator.mediaDevices.getUserMedia({ video: constraints });
+        camera.srcObject = stream;
+    } catch (err) {
+        console.error('Error accessing the camera: ', err);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', getToken)
+document.getElementById('analise').addEventListener('click', analise)

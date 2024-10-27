@@ -18,10 +18,20 @@ function cadastrar(){
             'senha': senha
         })
     })
-    .then(response => response.text())
-    .then(data =>{
-        console.log(data)
+    .then(response => {
+        if (response.redirected) {
+            window.location.href = response.url 
+        } else {
+            return response.json() 
+        }
     })
+    .then(data => {
+        if (data && data.msg) {
+            alert(data.msg)
+            //document.getElementById('resultado').innerText = data.msg 
+        }
+    })
+    
 }
 
 document.getElementById('cadastrar').addEventListener('click', cadastrar)

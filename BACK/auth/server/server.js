@@ -3,7 +3,8 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const path = require('path')
 const app = express()
-const rotas = require('./routes.js')
+const rotas_api = require('./routes_api.js')
+const routes_pages = require('./routes_pages.js')
 const URL = require('./url.js')
 const authMiddleware = require('./authMiddleware.js')
 
@@ -22,7 +23,8 @@ app.use('/node_api/private',authMiddleware,express.static(path.join(__dirname, '
 
 
 
-app.use('/', rotas)
+app.use('/', rotas_api)
+app.use('/', routes_pages)
 
 
 

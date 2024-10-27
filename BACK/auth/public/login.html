@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoodex - Login</title>
-    <link rel="stylesheet" href="./public/style/login.css">
+    <link rel="stylesheet" href="./node_api/public/style/login.css">
 </head>
 <body>
     <div class="container">
@@ -21,14 +21,12 @@
                 <input type="password" id="senha" name="password" required>
             </div>
             <div id="buttons" class="buttons">
-                <!-- Mudei para botão tipo button para não enviar o form -->
-                <button type="button" class="login-btn" id="entrar">Entrar</button>
-                <button type="button" class="register-btn">Cadastrar</button>
+                <button type="button" class="login-btn" id="login">Entrar</button>
+                <button type="button" class="register-btn" id="signin">Cadastrar</button>
             </div>
-            <p id="resultado"></p>
         </div>
     </div>
 
-    <script type="module" src="./public/scripts/login.js"></script>
+    <script type="module" src="./node_api/public/scripts/login.js"></script>
 </body>
 </html>
