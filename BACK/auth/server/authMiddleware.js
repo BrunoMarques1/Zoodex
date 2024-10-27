@@ -6,7 +6,7 @@ function authMiddleware(req, res, next) {
 
     if (!token) {
         console.log('Token ausente.');
-        return res.redirect('/node_api/login');
+        return res.redirect('/login');
     }
 
     jwt.verify(token, secretKey, (err, decoded) => {
