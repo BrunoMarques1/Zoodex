@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="startFrontCamera" onclick="startCamera('user')">LIGAR CÂMERA FRONTAL</button>
+    <button id="startBackCamera" onclick="startCamera('environment')">LIGAR CÂMERA TRASEIRA</button>
+    <button id="captureFoto" onclick="captureFoto()">TIRAR FOTO</button>
+    <button id="result" onclick="uploadPhoto()">ENVIAR FOTO</button>
+    <!--
+    <button id="getDevices" onclick="getDevices()">devices</button>
+    -->
+    <br><br>
+    <button id="captureFoto" onclick="captureTeste('./node_api/private/imgs/leao.jpg')">Leão</button>
+    <button id="captureFoto" onclick="captureTeste('./node_api/private/imgs/girafa.jpg')">Girafa</button>
+    <button id="captureFoto" onclick="captureTeste('./node_api/private/imgs/elefante.jpg')">Elefante</button>
+    <button id="captureFoto" onclick="captureTeste('./node_api/private/imgs/rinoceronte.jpg')">Rinoceronte</button>
+    <button id="captureFoto" onclick="captureTeste('./node_api/private/imgs/hipopotamo.jpg')">Hipopótamo</button>
+    <button id="captureFoto" onclick="captureTeste('./node_api/private/imgs/tigre.jpg')">Tigre</button>
+
+
+<!--
+    <div id="devices" ></div>
+-->
+    <div id="resultado"> </div>
+
+    
+    <canvas id="photo" width="640" height="480"></canvas>
+    <video id="camera" width="640" height="480" autoplay></video>
+
+
+    <script type="module" src="./node_api/private/scripts/analisar.js"></script>
+</body>
+</html>
