@@ -3,7 +3,7 @@ name: Deploy to EC2 - FASTAPI
 on:
   push:
     paths:
-      - "BACK/**"
+      - "APP/**"
 
 jobs:
   deploy:
@@ -32,8 +32,8 @@ jobs:
             cd /home/ec2-user/Zoodex &&
             git pull &&
             if tmux has-session -t api; then
-              tmux send-keys -t api C-c "cd /home/ec2-user/Zoodex/BACK/API/ && fastapi run main.py" C-m
+              tmux send-keys -t api C-c "cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start" C-m
             else
-              tmux new-session -d -s api "cd /home/ec2-user/Zoodex/BACK/API/ && fastapi run main.py"
+              tmux new-session -d -s api "cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start"
             fi
           '
