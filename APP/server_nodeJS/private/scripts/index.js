@@ -1,8 +1,6 @@
 import { URL } from './url.js'
 const cam = document.getElementById('cam');
 
-
-
 function getToken() {
     fetch(`${URL}/node_api/getToken`, {
         method: 'GET',
@@ -38,5 +36,5 @@ function analisar(){
 }
 
 document.addEventListener('DOMContentLoaded', getToken)
-document.getElementById('analise').addEventListener('click', analise)
+document.getElementById('analise').addEventListener('click', analisar)
 document.getElementById('zoodex').addEventListener('click', zoodex)

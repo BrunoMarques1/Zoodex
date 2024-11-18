@@ -1,3 +1,5 @@
+import { URL } from './url.js'
+
 document.addEventListener('DOMContentLoaded', function () {
     const camera = document.getElementById("camera")
     const photo = document.getElementById("photo")
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         photo.toBlob(blob => {
             formData.append('file', blob, 'photo.jpg')
 
-            fetch('http://localhost:3030/node_api/detect/', {
+            fetch(`${URL}/node_api/detect/`, {
                 method: 'POST',
                 body: formData
             })
