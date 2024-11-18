@@ -1,10 +1,9 @@
-name: Deploy to EC2 - FRONT
+name: Deploy ZOODEX
 
 on:
   push:
     paths:
-      - "FRONT/**"
-
+      - "APP/**"
 
 jobs:
   deploy:
@@ -32,6 +31,9 @@ jobs:
           ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
             cd /home/ec2-user/Zoodex &&
             git pull &&
-            sudo rm -rf /usr/share/nginx/html/src /usr/share/nginx/html/teste &&
-            sudo cp -rf /home/ec2-user/Zoodex/FRONT/* /usr/share/nginx/html/'
-
+            if tmux has-session -t api; then
+              tmux send-keys -t api C-c "cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start" C-m
+            else
+              tmux new-session -d -s api "cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start"
+            fi
+          '
