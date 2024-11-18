@@ -1,3 +1,7 @@
 
 /APP/server_nodeJS/node_modules
 /testes/rekognition_API/__pycache__
+/APP/server_nodeJS/private/scripts/url.js
+/APP/server_nodeJS/public/scripts/url.js
+/APP/server_nodeJS/server/database.js
+/APP/server_nodeJS/server/url.js
