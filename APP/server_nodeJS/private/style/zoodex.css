@@ -75,10 +75,10 @@ body {
     overflow-y: auto; /* Adiciona uma barra de rolagem se necessário */
     text-align: justify;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9; /* Fundo para contraste */
+     /* Fundo para contraste */
 }
+
 
 /* Ajuste para botões do carrossel */
 .carousel-control-prev,
@@ -104,8 +104,8 @@ body {
     }
 
     .profile-pic {
-        width: 60px;
-        height: 60px;
+        width: 130px;
+        height: 130px;
         font-size: 0.8rem;
     }
 
@@ -115,7 +115,7 @@ body {
 
     .descricao {
         font-size: 0.9rem;
-        max-height: 120px; /* Ajusta altura para telas menores */
+        max-height: 200px; /* Ajusta altura para telas menores */
     }
 }
 
