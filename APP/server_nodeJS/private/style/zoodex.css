@@ -1,0 +1,142 @@
+/* Estilo geral */
+body {
+    background: url('images/Folhas.webp') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* Botão em formato de seta */
+.btn-arrow {
+    position: fixed; /* Fixa o botão no canto superior esquerdo */
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo translúcido */
+    border: none;
+    border-radius: 50%; /* Forma arredondada */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Garante que o botão fique sobre os outros elementos */
+    text-decoration: none;
+    color: #333; /* Cor do ícone */
+}
+
+.btn-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro ao passar o mouse */
+    color: white; /* Cor do ícone ao passar o mouse */
+}
+
+.btn-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Caixa do carrossel */
+.info-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    width: 95%; /* Adaptação para telas menores */
+    max-width: 400px; /* Maior largura para telas maiores */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+/* Foto do perfil */
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centralizar imagem */
+}
+
+/* Nome do animal */
+.nome-animal {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Descrição */
+.descricao {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    max-height: 150px; /* Altura máxima ajustada */
+    overflow-y: auto; /* Adiciona uma barra de rolagem se necessário */
+    text-align: justify;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Fundo para contraste */
+}
+
+/* Ajuste para botões do carrossel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Reduz a largura dos controles */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+/* Adiciona espaçamento entre as setas e o conteúdo */
+.carousel-inner {
+    padding: 0 30px; /* Ajusta o espaço interno para evitar sobreposição */
+}
+
+/* Estilo responsivo para telas menores */
+@media (max-width: 576px) {
+    .info-box {
+        width: 90%; /* Maior largura em telas pequenas */
+        padding: 20px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+
+    .nome-animal {
+        font-size: 1.2rem;
+    }
+
+    .descricao {
+        font-size: 0.9rem;
+        max-height: 120px; /* Ajusta altura para telas menores */
+    }
+}
+
+/* Estilo para telas maiores */
+@media (min-width: 992px) {
+    .info-box {
+        max-width: 500px; /* Ajuste para ocupar mais espaço */
+    }
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
+    }
+
+    .nome-animal {
+        font-size: 1.5rem;
+    }
+
+    .descricao {
+        font-size: 1rem;
+        max-height: 200px; /* Maior altura para telas grandes */
+    }
+}

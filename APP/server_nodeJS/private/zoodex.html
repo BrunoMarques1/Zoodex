@@ -1,4 +1,52 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoodex - Carrossel</title>
+    <!-- Bootstrap CSS -->
+    <link href="./node_api/private/style/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="./node_api/private/style/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <!-- Arquivo CSS Externo -->
+    <link rel="stylesheet" href="./node_api/private/style/zoodex.css">
+</head>
+<body>
+    <!-- Botão no canto superior esquerdo -->
+    <button id="botaoVoltar" class="btn-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
+        </svg>
+    </button>
+    
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <!-- Carrossel -->
+        <div id="carouselZoodex" class="carousel slide info-box" data-bs-ride="carousel">
+
+            
+            <div id="carrosel" class="carousel-inner">
+            </div>
+            <!-- Controles do Carrossel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselZoodex" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselZoodex" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="./node_api/private/scripts/zoodex.js"></script>
+</body>
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,3 +62,4 @@
     <script type="module" src="./node_api/private/scripts/zoodex.js"></script>
 </body>
 </html> 
+-->
