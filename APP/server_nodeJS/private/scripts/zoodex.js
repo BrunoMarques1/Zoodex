@@ -20,9 +20,18 @@ function getInfo() {
                 </div>`
             document.getElementById(`profile-pic-${element.id}`).style = `background-image: url('${element.foto}');`
         });
-        //data.naoAnalisados.forEach(element => {
-        //    document.getElementById('naoAnalisado').innerHTML += element.nome + '<br>'
-        //});
+        data.naoAnalisados.forEach((element,index) => {
+            const isActive = (data.analisados.length === 0 && index === 0) ? 'active' : ''; 
+            carrosel.innerHTML += `
+                <div class="carousel-item ${isActive}">
+                    <div class="profile">
+                        <div id="profile-pic-${element.id}" class="profile-pic"></div>
+                        <p class="nome-animal">???</p>
+                        <p class="descricao">Este animal ainda não foi analisado. Para obter mais informações, por favor, realize a análise.</p>
+                    </div>
+                </div>`
+            document.getElementById(`profile-pic-${element.id}`).style = `background-image: url('${element.foto_silhueta}');`
+        });
     })
     .catch(error => console.error('Erro:', error))
 }
