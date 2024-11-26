@@ -43,21 +43,33 @@ A aplicação “Pokédex de Animais Reais” será desenvolvida como uma soluç
 
 ## Diagrama EMR do Banco de Dados:
 
-![Classe UML (1).png](imagens_readme/00a7509e-31d0-40d2-b5ce-fc4b4c8c15b6.png)
+<p align="center">
+  <img src="imagens_readme/00a7509e-31d0-40d2-b5ce-fc4b4c8c15b6.png" />
+</p>
 
 ## Diagrama de Fluxo de Dados
 
-![Fluxo_Dados.png](imagens_readme/Fluxo_Dados.png)
+<p align="center">
+  <img src="imagens_readme/Fluxo_Dados.png" />
+</p>
 
 ## Mockup
 
-![image.png](imagens_readme/image.png)
+<p align="center">
+  <img src="imagens_readme/image.png" />
+</p>
 
-![image.png](imagens_readme/image%201.png)
+<p align="center">
+  <img src="imagens_readme/image%201.png" />
+</p>
 
-![image.png](imagens_readme/image%202.png)
+<p align="center">
+  <img src="imagens_readme/image%202.png" />
+</p>
 
-![image.png](imagens_readme/image%203.png)
+<p align="center">
+  <img src="imagens_readme/image%203.png" />
+</p>
 
 ## Casos de Uso
 
