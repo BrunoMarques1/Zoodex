@@ -53,7 +53,7 @@ A aplicação “Pokédex de Animais Reais” será desenvolvida como uma soluç
   <img src="imagens_readme/Fluxo_Dados.png" />
 </p>
 
-## Mockup
+## Wireframe
 
 <p align="center">
   <img src="imagens_readme/image.png" />
@@ -71,6 +71,32 @@ A aplicação “Pokédex de Animais Reais” será desenvolvida como uma soluç
   <img src="imagens_readme/image%203.png" />
 </p>
 
+<p align="center">
+  <img src="imagens_readme/image%204.png" />
+</p>
+
+<p align="center">
+  <img src="imagens_readme/image%205.png" />
+</p>
+
+## Mockup
+
+<p align="center">
+  <img src="imagens_readme/image%206.png" />
+</p>
+
+<p align="center">
+  <img src="imagens_readme/image%207.png" />
+</p>
+
+<p align="center">
+  <img src="imagens_readme/image%208.png" />
+</p>
+
+<p align="center">
+  <img src="imagens_readme/image%209.png" />
+</p>
+
 ## Casos de Uso
 
 ### **Caso de Uso: Identificação de um Animal a partir de uma Foto**
@@ -86,10 +112,20 @@ A aplicação “Pokédex de Animais Reais” será desenvolvida como uma soluç
 
 1. O visitante acessa a aplicação Zoodex por meio do navegador no celular.
 2. Realiza o login ou cadastro na aplicação para iniciar a experiência personalizada.
+
+<p align="center">
+    <img src="imagens_readme/Imagem_do_WhatsApp_de_2024-11-28_(s)_22.25.36_378ca981.jpg" />
+</p>
+
 3. Na tela inicial, o visitante visualiza três opções principais:
     - **Analisar Animal**: Permite identificar um animal através de uma foto.
     - **Zoodex**: Mostra os animais já identificados e informações detalhadas sobre eles.
     - **Mapa do Zoológico**: Exibe uma imagem estática do mapa para orientar o visitante.
+
+<p align="center">
+    <img src="imagens_readme/Imagem_do_WhatsApp_de_2024-11-28_(s)_22.25.36_68dd6b6f.jpg" />
+</p>
+
 4. O visitante seleciona a opção **Analisar Animal**.
 5. O sistema solicita permissão para acessar a câmera do celular.
 6. O visitante tira uma foto do animal que está observando.
@@ -109,8 +145,22 @@ A aplicação “Pokédex de Animais Reais” será desenvolvida como uma soluç
     - Dieta.
     - Status de conservação.
     - Curiosidades.
+
+<p align="center">
+    <img src="imagens_readme/Imagem_do_WhatsApp_de_2024-11-28_(s)_22.25.36_7b854e8f.jpg" />
+</p>
+
 11. O visitante pode acessar a opção **Zoodex**, onde o animal identificado agora aparece desbloqueado.
     - Animais ainda não analisados permanecem bloqueados, exibindo apenas suas silhuetas como estímulo para novas interações.
+
+<p align="center">
+    <img src="imagens_readme/Imagem_do_WhatsApp_de_2024-11-28_(s)_22.25.36_19b95434.jpg" />
+</p>
+
+<p align="center">
+    <img src="imagens_readme/image%2010.png" />
+</p>
+
 
 ## Endpoints de API
 
@@ -179,10 +229,42 @@ A aplicação “Pokédex de Animais Reais” será desenvolvida como uma soluç
     
     Para melhorar a precisão na diferenciação entre espécies e subespécies, uma estratégia futura seria utilizar ou desenvolver uma IA específica para identificação de animais. O fluxo de análise poderia ser dividido em etapas, onde a primeira IA identifica a categoria geral (por exemplo, pássaro), e a imagem é encaminhada para uma IA especializada em pássaros. Esse sistema modular poderia aumentar significativamente a acurácia da identificação.
     
-2. **Implementação de Mapas Interativos**:
+22. **Implementação de Mapas Interativos**:
     
     Retomar a ideia de integrar a Google Maps API ou outra ferramenta que permita a criação de mapas personalizados seria um passo importante para enriquecer a experiência do usuário. O mapa interativo poderia incluir informações detalhadas sobre a localização dos animais no zoológico, rotas e pontos de interesse.
     
+
+# **Validação**
+
+### **Objetivo da Validação**
+
+O objetivo da validação foi garantir que o sistema Zoodex funcionasse conforme o esperado, atendendo ao objetivo principal de identificar animais a partir de fotos enviadas pelos usuários e fornecer informações detalhadas sobre eles.
+
+### **Métodos de Validação Utilizados**
+
+1. **Validação Funcional**
+    - **Testes de Integração**: Foram realizados testes para garantir que todos os componentes do sistema (API Node.js, AWS Rekognition, banco de dados e front-end) funcionam de maneira integrada. Por exemplo:
+        - Enviar uma foto válida e verificar se os rótulos corretos foram retornados e associados às informações no banco.
+        - Simular o envio de fotos inválidas ou de baixa qualidade para verificar o tratamento de erros.
+    - **Testes de API**: Foram realizados testes nos endpoints para verificar se cada rota retorna os dados esperados e responde adequadamente a diferentes cenários, como sucesso e falha.
+        - Exemplo: Testar o endpoint `/node_api/detect` com imagens de diferentes animais e avaliar os resultados.
+2. **Validação de Usabilidade**
+    - **Testes com Usuários**: Foram conduzidos testes com um pequeno grupo de usuários (por exemplo, cinco pessoas) para avaliar a experiência com o sistema. Durante os testes, os usuários receberam as seguintes tarefas:
+        - Realizar login/cadastro.
+        - Tirar uma foto de um animal fictício (representado por imagens na tela).
+        - Navegar na Zoodex e no mapa estático.
+    - Feedback dos usuários foi coletado sobre:
+        - Facilidade de uso.
+        - Clareza das informações apresentadas.
+        - Funcionamento geral do sistema.
+
+### **Resultados Obtidos**
+
+- **Taxa de Sucesso na Identificação**: Durante os testes, o sistema demonstrou um bom desempenho na identificação de animais comuns, especialmente quando as imagens enviadas eram de alta qualidade. No entanto, a identificação de espécies específicas ou subespécies apresentou mais desafios, refletindo as limitações da API genérica utilizada para reconhecimento.
+- **Feedback dos Usuários**:
+    - Os participantes avaliaram o sistema como **fácil de usar** e **educativo**, destacando a praticidade do fluxo principal.
+- **Desempenho**:
+    - O tempo médio de resposta para identificar um animal e retornar as informações foi de **2 segundos**, considerado adequado.
 
 # **Conclusão**
 
