@@ -1,0 +1,42 @@
+/* Estilo geral */
+body {
+    background: url('./images/Folhas.webp') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    
+}
+/* Botão em formato de seta */
+.btn-arrow {
+    position: fixed; /* Fixa o botão no canto superior esquerdo */
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo translúcido */
+    border: none;
+    border-radius: 50%; /* Forma arredondada */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Garante que o botão fique sobre os outros elementos */
+    text-decoration: none;
+    color: #333; /* Cor do ícone */
+}
+
+.btn-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro ao passar o mouse */
+    color: white; /* Cor do ícone ao passar o mouse */
+}
+
+.btn-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+

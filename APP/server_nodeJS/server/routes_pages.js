@@ -10,5 +10,6 @@ router.get('/login', (req, res) => res.sendFile(path.join(__dirname, '../public/
 router.get('/', authMiddleware, (req, res) => {res.sendFile(path.join(__dirname, '../private/index.html'));})
 router.get('/zoodex', authMiddleware, (req, res) => {res.sendFile(path.join(__dirname, '../private/zoodex.html'));})
 router.get('/analisar', authMiddleware, (req, res) => {res.sendFile(path.join(__dirname, '../private/analisar.html'));})
+router.get('/mapazoo', authMiddleware, (req, res) => {res.sendFile(path.join(__dirname, '../private/mapazoo.html'));})
 
 module.exports = router

@@ -3,6 +3,8 @@ import { URL } from './url.js'
 document.addEventListener('DOMContentLoaded', getToken)
 document.getElementById('analise').addEventListener('click', () => analise('user'))
 document.getElementById('zoodex').addEventListener('click', zoodex)
+document.getElementById('mapazoo').addEventListener('click', mapazoo)
+
 
 const menu = document.getElementById('menu')
 const display = document.getElementById('display')
@@ -64,6 +66,7 @@ async function uploadPhoto(photo) {
         })
         .then(response => response.json())
         .then(data => {
+            resultDiv.style.display = 'block';
             resultDiv.innerHTML = '<h2>Animal detectado:</h2>'
         //if (data.labels && data.labels.length > 0) {
             //    data.labels.forEach(label => {
@@ -107,6 +110,9 @@ function zoodex() {
 
 function voltar() {
     window.location.href = '/'
+}
+function mapazoo() {
+    window.location.href = '/mapazoo'
 }
 
 function putButtons() {

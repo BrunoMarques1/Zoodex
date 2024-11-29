@@ -87,6 +87,17 @@ body {
     background: linear-gradient(90deg, #1f9589, #4e8b25);
 }
 
+#resultado {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    width: 95%; /* Adaptação para telas menores */
+    max-width: 400px; /* Maior largura para telas maiores */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    display: none;
+}
 
 /* Video container styles */
 .video-container {
