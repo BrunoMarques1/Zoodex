@@ -97,6 +97,9 @@ body {
     text-align: center;
     position: relative;
     display: none;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
 
 /* Video container styles */
