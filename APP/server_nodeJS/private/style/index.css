@@ -50,6 +50,7 @@ body {
     border-radius: 50%;
     background-size: cover;
     margin-right: 15px;
+    background-image: url(./node_api/private/style/images/user.png)
 }
 
 .username {

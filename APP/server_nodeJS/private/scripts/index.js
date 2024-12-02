@@ -22,7 +22,7 @@ function getToken() {
         .then(data => {
             console.log(data)
             document.getElementById('username').innerHTML = data.nome
-            document.getElementById('profile-pic').style = `background-image: url(./node_api/private/style/images/user.png)`
+            //document.getElementById('profile-pic').style = ``
         })
         .catch(error => console.error('Erro:', error))
 }
