@@ -28,12 +28,10 @@ jobs:
 
       - name: Deploy to EC2 as root
         run: |
-          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} '
+          ssh -i "ec2Key.pem" ec2-user@${{ secrets.EC2_HOST }} "
             cd /home/ec2-user/Zoodex &&
             git pull &&
-            if tmux has-session -t api; then
-              tmux send-keys -t api C-c "cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start" C-m
-            else
-              tmux new-session -d -s api "cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start"
-            fi
-          '
+            tmux kill-session -t api 2>/dev/null || true &&
+            tmux new-session -d -s api 'cd /home/ec2-user/Zoodex/APP/server_nodeJS/ && npm start'
+          "
+
