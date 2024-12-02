@@ -5,13 +5,12 @@ document.getElementById('analise').addEventListener('click', () => analise('user
 document.getElementById('zoodex').addEventListener('click', zoodex)
 document.getElementById('mapazoo').addEventListener('click', mapazoo)
 
-
 const menu = document.getElementById('menu')
 const display = document.getElementById('display')
+const resultDiv = document.getElementById("resultado")
 let stream = null 
 let camera = null
 let lastFacingMode = null
-const resultDiv = document.getElementById("resultado")
 
 
 function getToken() {
@@ -23,7 +22,7 @@ function getToken() {
         .then(data => {
             console.log(data)
             document.getElementById('username').innerHTML = data.nome
-            document.getElementById('profile-pic').style = `background-image: url(${data.foto_perfil})`
+            document.getElementById('profile-pic').style = `background-image: url(./node_api/private/style/images/user.png)`
         })
         .catch(error => console.error('Erro:', error))
 }
@@ -66,23 +65,13 @@ async function uploadPhoto(photo) {
         })
         .then(response => response.json())
         .then(data => {
-            resultDiv.style.display = 'block';
+            resultDiv.style.display = 'grid';
             resultDiv.innerHTML = '<h2>Animal detectado:</h2>'
-        //if (data.labels && data.labels.length > 0) {
-            //    data.labels.forEach(label => {
-            //        resultDiv.innerHTML += `<p>- ${label.name}: ${label.confidence}%</p>`
-            //    })
-
             resultDiv.innerHTML += `<p> Nome: ${data.nome}</p>`
             resultDiv.innerHTML += `<p> Descrição: ${data.descricao}</p>`
-            console.log(data)
-//                   } else {
-//                       resultDiv.innerHTML += '<p>No elements detected in the image.</p>'
-//                   }
         })
         .catch(error => {
             resultDiv.innerHTML = '<h2>Não foi possível detectar animais</h2>'
-            //console.error('Error uploading the photo:', error)
     })
     }, 'image/jpeg')
 }
@@ -95,6 +84,7 @@ function tirarFoto(){
     uploadPhoto(photo)
 }
 
+
 function inverterCamera(){
     if (lastFacingMode === 'user'){
         analise('environment')
@@ -104,16 +94,6 @@ function inverterCamera(){
     
 }
 
-function zoodex() {
-    window.location.href = '/zoodex'
-}
-
-function voltar() {
-    window.location.href = '/'
-}
-function mapazoo() {
-    window.location.href = '/mapazoo'
-}
 
 function putButtons() {
     menu.style.height = '30%'
@@ -127,3 +107,8 @@ function putButtons() {
     document.getElementById('voltar').addEventListener('click', voltar)
     document.getElementById('inverterCamera').addEventListener('click', inverterCamera)
 }
+
+
+function voltar() {window.location.href = '/'}
+function zoodex() {window.location.href = '/zoodex'}
+function mapazoo() {window.location.href = '/mapazoo'}
