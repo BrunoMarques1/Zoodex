@@ -8,8 +8,16 @@ function getInfo() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data.ultima_analise_id)
         data.analisados.forEach((element,index) => {
-            const isActive = index === 0 ? 'active' : ''; 
+            let isActive
+
+            if(!data.ultima_analise_id){
+                isActive = index === 0 ? 'active' : '' 
+            }else{
+                isActive = element.id === data.ultima_analise_id ? 'active' : '' 
+            }
+            
             carrosel.innerHTML += `
                 <div class="carousel-item ${isActive}">
                     <div class="profile">
@@ -18,10 +26,10 @@ function getInfo() {
                         <p class="descricao">${element.descricao}</p>
                     </div>
                 </div>`
-            document.getElementById(`profile-pic-${element.id}`).style = `background-image: url('${element.foto}');`
-        });
+            document.getElementById(`profile-pic-${element.id}`).style = `background-image: url('${element.foto}')`
+        })
         data.naoAnalisados.forEach((element,index) => {
-            const isActive = (data.analisados.length === 0 && index === 0) ? 'active' : ''; 
+            const isActive = (data.analisados.length === 0 && index === 0) ? 'active' : '' 
             carrosel.innerHTML += `
                 <div class="carousel-item ${isActive}">
                     <div class="profile">
@@ -30,8 +38,8 @@ function getInfo() {
                         <p class="descricao">Este animal ainda não foi analisado. Para obter mais informações, por favor, realize a análise.</p>
                     </div>
                 </div>`
-            document.getElementById(`profile-pic-${element.id}`).style = `background-image: url('${element.foto_silhueta}');`
-        });
+            document.getElementById(`profile-pic-${element.id}`).style = `background-image: url('${element.foto_silhueta}')`
+        })
     })
     .catch(error => console.error('Erro:', error))
 }

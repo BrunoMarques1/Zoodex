@@ -26,8 +26,9 @@ router.get('/node_api/getToken', async (req, res) => {
 router.get('/node_api/getZoodexInfo', async (req, res) => {
     const cookie = req.cookies.TokenAuth
     if (cookie) {
-        const info = jwt.verify(cookie,secretKey)
-        const lista_analises = await knex('historico').where('usuario_id', info.id)
+        const user_info = jwt.verify(cookie,secretKey)
+        const {ultima_analise_id} = await knex('usuarios').select('ultima_analise_id').where('id',user_info.id).first()
+        const lista_analises = await knex('historico').where('usuario_id', user_info.id)
 //        const historico = await knex('animais').whereIn('id', lista_analises)
 
 
@@ -37,7 +38,8 @@ router.get('/node_api/getZoodexInfo', async (req, res) => {
         
         res.json({
             analisados: animaisAnalisados,
-            naoAnalisados: animaisNaoAnalisados
+            naoAnalisados: animaisNaoAnalisados,
+            ultima_analise_id: ultima_analise_id
         })
         
     } else {
@@ -59,20 +61,20 @@ async function verificaHistorico(id_u,id_a) {
 }
 
 
-//Detectar animal presente na foto e salvar/verificar histórico do usuário
 router.post('/node_api/detect', upload.single('file'), async (req, res) => {
     try {
-        const imageBytes = req.file.buffer // Lê o arquivo enviado
-        const labels = await detectLabels(imageBytes) // Chama o serviço Rekognition
+        const imageBytes = req.file.buffer
+        const labels = await detectLabels(imageBytes)
         const nomesAnimais = await knex('animais').select('nome_eng')
         const lista_animais = nomesAnimais.map(item => item.nome_eng)
         const cookie = req.cookies.TokenAuth
-        const info = jwt.verify(cookie,secretKey)
+        const user_info = jwt.verify(cookie,secretKey)
 
         for (const i of labels) {
             if (lista_animais.includes(i.Name) && i.Confidence > 89) {
                 const result = await knex('animais').where({ nome_eng: i.Name }).first()
-                await verificaHistorico(info.id,result.id)
+                await knex('usuarios').where({'id': user_info.id}).update({'ultima_analise_id': result.id})
+                await verificaHistorico(user_info.id,result.id)
                 if (result) {
                     return res.json({
                         nome: result.nome,
